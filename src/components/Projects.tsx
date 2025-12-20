@@ -1,78 +1,71 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import Section from "./Section"
-import { projects } from "@/data/projectsdata"
+import Link from "next/link";
+import { projects } from "@/data/projectsdata";
+
+const ALLOWED_CATEGORIES = [
+  "GenAI & AI Systems",
+  "Machine Learning & Forecasting",
+  "Web Development",
+];
 
 export default function Projects() {
+  const featuredProjects = projects
+    .filter((p) => ALLOWED_CATEGORIES.includes(p.category))
+    .slice(0, 4); // show only few
+
   return (
-    <Section
-      id="projects"
-      eyebrow="Work"
-      title="Selected projects"
-      subtitle="A small selection of systems I’ve designed and built."
-      className="bg-[color:var(--bg-surface)] bg-noise"
-    >
+    <section id="projects" className="py-20">
+      <div className="max-w-6xl mx-auto px-4 relative">
+        <h2 className="text-3xl font-bold mb-12 text-center">
+          Featured Projects
+        </h2>
 
-      <div className="space-y-14">
-        {projects.map((project, index) => (
-          <motion.div
-            key={project.title}
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45, ease: "easeOut" }}
-            className="max-w-3xl"
-          >
-            {/* Project title */}
-            <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-neutral-950">
-              {project.title}
-            </h3>
+        <div className="grid md:grid-cols-2 gap-6">
+          {featuredProjects.map((project) => (
+            <div
+              key={project.title}
+              className="rounded-xl border p-6 hover:shadow-lg transition"
+            >
+              <h4 className="text-lg font-semibold mb-2">{project.title}</h4>
 
-            {/* Description */}
-            <p className="mt-3 text-neutral-700 leading-relaxed">
-              {project.description}
-            </p>
+              <p className="text-sm text-muted mb-4">{project.description}</p>
 
-            {/* Tech tags */}
-            <div className="mt-4 flex flex-wrap gap-2">
-              {project.tech.map((tag) => (
-                <span
-                  key={tag}
-                  className="
-                    text-xs
-                    px-3 py-1
-                    rounded-full
-                    bg-[#f3f1eb]
-                    text-neutral-700
-                  "
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tech.map((tech) => (
+                  <span
+                    key={tech}
+                    className="text-xs px-2 py-1 rounded bg-muted"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              {project.link && project.link.startsWith("http") && (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-[var(--royal-gold)] hover:underline"
                 >
-                  {tag}
-                </span>
-              ))}
+                  View project →
+                </a>
+              )}
             </div>
+          ))}
+        </div>
 
-            {/* Link */}
-            {project.link && (
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  inline-block
-                  mt-4
-                  text-sm
-                  font-medium
-                  text-neutral-900
-                  hover:underline
-                "
-              >
-                View project →
-              </a>
-            )}
-          </motion.div>
-        ))}
+        {/* CTA */}
+        <div className="flex justify-end mt-10">
+          <Link
+            href="/projects"
+            className="text-sm font-medium text-primary hover:underline"
+          >
+            View all projects →
+          </Link>
+        </div>
       </div>
-    </Section>
-  )
+    </section>
+  );
 }
