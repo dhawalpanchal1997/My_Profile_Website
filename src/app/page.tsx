@@ -11,7 +11,6 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
-      <Navbar />
       <SideRail />
 
       <main className="bg-[#f7f7f8] text-neutral-900">

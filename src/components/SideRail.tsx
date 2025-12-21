@@ -1,52 +1,53 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { motion } from "framer-motion"
-import { Github, Linkedin, Mail } from "lucide-react"
-import { site } from "@/data/resumedata"
-
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { Github, Linkedin, Mail } from "lucide-react";
+import { site } from "@/data/resumedata";
 
 export default function SideRail() {
-  const [isDark, setIsDark] = useState(true)
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
-    const hero = document.querySelector('[data-rail-theme="dark"]')
-    if (!hero) return
+    const hero = document.querySelector('[data-rail-theme="dark"]');
+    if (!hero) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsDark(entry.isIntersecting)
+        setIsDark(entry.isIntersecting);
       },
       { threshold: 0.2 }
-    )
+    );
 
-    observer.observe(hero)
-    return () => observer.disconnect()
-  }, [])
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, []);
 
-  const colorClass = isDark ? "text-white" : "text-neutral-900"
-  const lineClass = isDark ? "bg-white/40" : "bg-black/40"
+  const colorClass = isDark
+    ? "text-[color:var(--royal-gold)]"
+    : "text-neutral-900";
+
+  const lineClass = isDark ? "bg-[color:var(--royal-gold)]/40" : "bg-black/40";
 
   return (
     <>
       {/* LEFT RAIL — Social Icons (BOTTOM) */}
       <motion.aside
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: 1,
-            y: [0, -4, 0],
-          }}
-          transition={{
-            opacity: { duration: 0.4 },
-            y: {
-              duration: 6,
-              repeat: Infinity,
-              ease: "easeInOut",
-            },
-          }}
-          className="hidden lg:flex fixed left-6 bottom-10 z-40"
-        >
-
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: 1,
+          y: [0, -4, 0],
+        }}
+        transition={{
+          opacity: { duration: 0.4 },
+          y: {
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+          },
+        }}
+        className="hidden lg:flex fixed left-6 bottom-10 z-40"
+      >
         <div className="flex flex-col items-center gap-6">
           <a
             href={site.github}
@@ -97,7 +98,6 @@ export default function SideRail() {
         }}
         className="hidden lg:flex fixed right-6 bottom-10 z-40"
       >
-
         <div className="flex flex-col items-center gap-6">
           <div className={`h-16 w-px ${lineClass}`} />
 
@@ -116,5 +116,5 @@ export default function SideRail() {
         </div>
       </motion.aside>
     </>
-  )
+  );
 }

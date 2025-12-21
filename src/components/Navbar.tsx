@@ -6,45 +6,79 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Home, User, Briefcase, Layers, Cpu, Mail } from "lucide-react";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { site } from "@/data/resumedata";
-import { Moon, Sun } from "lucide-react";
 
 const sections = [
   { id: "home", label: "Home", icon: Home },
-  { id: "about", label: "My Self", icon: User },
+  { id: "about", label: "About", icon: User },
   { id: "experience", label: "Experience", icon: Briefcase },
-  { id: "projects", label: "My Work", icon: Layers },
+  { id: "projects", label: "Projects", icon: Layers },
   { id: "skills", label: "Skills", icon: Cpu },
   { id: "contact", label: "Contact", icon: Mail },
 ];
 
-export default function Navbar() {
+interface NavbarProps {
+  /** When rendered inside Hero (C2R1) */
+  inHero?: boolean;
+}
+
+export default function Navbar({ inHero = false }: NavbarProps) {
   const activeId = useScrollSpy(sections.map((s) => s.id));
   const [isCompact, setIsCompact] = useState(false);
+  const [isHeroVisible, setIsHeroVisible] = useState(inHero);
 
+  /* ===============================
+     Detect Hero visibility
+     =============================== */
   useEffect(() => {
+    const hero = document.querySelector('[data-rail-theme="dark"]');
+    if (!hero) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsHeroVisible(entry.isIntersecting),
+      { threshold: 0.25 }
+    );
+
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, []);
+
+  /* ===============================
+     ORIGINAL compact logic (UNCHANGED)
+     =============================== */
+  useEffect(() => {
+    if (isHeroVisible) {
+      setIsCompact(false);
+      return;
+    }
+
     const onScroll = () => {
       setIsCompact(window.scrollY > window.innerHeight * 0.6);
     };
 
     window.addEventListener("scroll", onScroll);
-    onScroll(); // run once on mount
+    onScroll();
 
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isHeroVisible]);
 
   return (
     <motion.nav
       initial={{ y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50"
+      className={`
+        ${isHeroVisible ? "relative" : "fixed top-0 left-0 right-0"}
+        z-50
+      `}
     >
-      <div className="flex justify-center px-6 pt-4">
+      <div className="flex justify-center px-6 pt-1">
         <motion.div
           animate={{
             paddingTop: isCompact ? 8 : 16,
             paddingBottom: isCompact ? 8 : 16,
-            backgroundColor: isCompact
+            backgroundColor: isHeroVisible
+              ? "rgba(0,0,0,0)"
+              : isCompact
               ? "rgba(245, 245, 245, 0.07)"
               : "rgba(250,250,250,0.75)",
           }}
@@ -52,44 +86,10 @@ export default function Navbar() {
           className={`
             flex items-center
             rounded-2xl
-            backdrop-blur
-            border border-black/5
-            shadow-sm
+            ${isHeroVisible ? "" : "backdrop-blur border border-black/5 shadow-sm"}
             ${isCompact ? "px-4" : "px-6 max-w-6xl w-full justify-between"}
           `}
         >
-          {/* LEFT — Profile (only on Hero) */}
-          <AnimatePresence>
-            {!isCompact && (
-              <motion.a
-                href="#home"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.25 }}
-                className="flex items-center gap-4"
-              >
-                <div className="relative h-10 w-10 rounded-full overflow-hidden">
-                  <Image
-                    src="/images/logo.avif"
-                    alt={site.name}
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                </div>
-
-                <span className="flex items-baseline gap-2 leading-none">
-                  <span className="text-lg font-semibold tracking-tight text-neutral-900">
-                    Dhawal
-                  </span>
-                  <span className="text-sm font-medium tracking-widest uppercase text-neutral-500">
-                    Panchal
-                  </span>
-                </span>
-              </motion.a>
-            )}
-          </AnimatePresence>
 
           {/* NAV — Text or Icons */}
           <div
@@ -106,13 +106,14 @@ export default function Navbar() {
                 <a
                   key={s.id}
                   href={`#${s.id}`}
-                  className="
-                    relative
-                    group
-                    text-neutral-500
-                    hover:text-neutral-900
-                    transition-colors
-                  "
+                  className={`
+                    relative group transition-colors
+                    ${
+                      isHeroVisible
+                        ? "text-white/70 hover:text-white"
+                        : "text-neutral-500 hover:text-neutral-900"
+                    }
+                  `}
                 >
                   <AnimatePresence mode="wait">
                     {isCompact ? (
@@ -125,7 +126,7 @@ export default function Navbar() {
                       >
                         <Icon
                           size={20}
-                          className={isActive ? "text-neutral-900" : ""}
+                          className={isActive ? "text-current" : ""}
                         />
                       </motion.span>
                     ) : (
@@ -135,7 +136,7 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 4 }}
                         transition={{ duration: 0.2 }}
-                        className={isActive ? "text-neutral-900" : ""}
+                        className={isActive ? "text-current" : ""}
                       >
                         {s.label}
                       </motion.span>
@@ -173,7 +174,7 @@ export default function Navbar() {
                         h-1 w-1
                         -translate-x-1/2
                         rounded-full
-                        bg-neutral-900
+                        bg-current
                       "
                     />
                   )}
