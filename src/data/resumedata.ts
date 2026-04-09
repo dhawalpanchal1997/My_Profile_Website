@@ -3,7 +3,7 @@ export const site = {
   email: "panchaldhawal128@gmail.com",
   linkedin: "https://www.linkedin.com/in/dhawalpanchalcloud/",
   github: "https://github.com/dhawalpanchal1997",
-  resumeUrl: "https://drive.google.com/file/d/1Nd-gR8JWL15bWm3REAaTbD2YREHwYuea/view?usp=sharing",
+  resumeUrl: "https://drive.google.com/file/d/1QjPzIGUba4L1z_oUP0o5N5q-ZPZr8s_s/view?usp=sharing",
   location: "Dallas, TX • Open to Relocate",
 }
 
