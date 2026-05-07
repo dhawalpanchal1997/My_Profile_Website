@@ -5,7 +5,6 @@ import { site } from "@/data/resumedata";
 import { usePointerParallax } from "@/hooks/usePointerParallax";
 
 export default function NameBanner() {
-  const letters = site.name.split("");
   const { springX, springY, handlePointerMove, handlePointerLeave } =
     usePointerParallax(18);
   const panelX = useTransform(springX, (value) => value * 0.22);
@@ -49,31 +48,79 @@ export default function NameBanner() {
             Portfolio
           </p>
 
-          <motion.h2
+          <motion.div
             aria-label={site.name}
+            role="img"
             style={{ x: lettersX, y: lettersY }}
-            className="mt-4 flex flex-nowrap items-center justify-center gap-x-[0.08em] whitespace-nowrap text-center text-[clamp(2rem,6vw,5.8rem)] font-semibold uppercase leading-none tracking-[0.12em] text-transparent [font-family:var(--font-display)]"
+            className="signature-name mx-auto mt-2 w-full max-w-5xl"
           >
-            {letters.map((letter, index) => (
-              <motion.span
-                key={`${letter}-${index}`}
-                initial={{ opacity: 0, y: 26, filter: "blur(10px)" }}
-                animate={{ opacity: 1, y: [0, index % 2 === 0 ? -4 : -2, 0], filter: "blur(0px)" }}
-                transition={{
-                  duration: 3.8 + (index % 4) * 0.4,
-                  ease: "easeOut",
-                  delay: 0.08 + index * 0.035,
-                  repeat: Infinity,
-                  repeatDelay: 1.4,
-                }}
-                className={`name-banner-letter name-banner-letter-float ${
-                  letter === " " ? "mx-[0.2em] w-[0.45em]" : ""
-                }`}
+            <svg
+              className="signature-name__svg"
+              viewBox="0 0 980 190"
+              aria-hidden="true"
+            >
+              <defs>
+                <linearGradient
+                  id="signatureNameGradient"
+                  x1="12%"
+                  x2="88%"
+                  y1="8%"
+                  y2="88%"
+                >
+                  <stop offset="0%" stopColor="#ffffff" />
+                  <stop offset="36%" stopColor="#7dd3fc" />
+                  <stop offset="68%" stopColor="#e0f2fe" />
+                  <stop offset="100%" stopColor="#fbbf24" />
+                </linearGradient>
+                <clipPath id="signatureNameClip" clipPathUnits="userSpaceOnUse">
+                  <rect
+                    className="signature-name__clip"
+                    x="88"
+                    y="0"
+                    width="824"
+                    height="162"
+                  />
+                </clipPath>
+              </defs>
+
+              <text
+                className="signature-name__shadow"
+                x="50%"
+                y="116"
+                textAnchor="middle"
+                textLength="800"
+                lengthAdjust="spacingAndGlyphs"
               >
-                {letter === " " ? "\u00A0" : letter}
-              </motion.span>
-            ))}
-          </motion.h2>
+                {site.name}
+              </text>
+              <text
+                className="signature-name__stroke"
+                x="50%"
+                y="116"
+                textAnchor="middle"
+                textLength="800"
+                lengthAdjust="spacingAndGlyphs"
+              >
+                {site.name}
+              </text>
+              <text
+                className="signature-name__fill"
+                clipPath="url(#signatureNameClip)"
+                x="50%"
+                y="116"
+                textAnchor="middle"
+                textLength="800"
+                lengthAdjust="spacingAndGlyphs"
+              >
+                {site.name}
+              </text>
+              <path
+                className="signature-name__flourish"
+                d="M165 143 C260 170 440 170 520 147 C592 126 704 127 815 151"
+                pathLength="1"
+              />
+            </svg>
+          </motion.div>
 
           <div className="mt-5 flex items-center justify-center gap-3">
             <span className="h-px w-12 bg-gradient-to-r from-transparent to-sky-300/70" />

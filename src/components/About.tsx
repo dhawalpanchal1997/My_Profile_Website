@@ -22,7 +22,7 @@ export default function About() {
           <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-sky-300/15 to-transparent" />
           <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10">
             <Image
-              src="/images/profile.jpg"
+              src="/images/profile.png"
               alt="Dhawal Panchal portrait"
               width={900}
               height={1100}
