@@ -22,13 +22,13 @@ export default function Home() {
         <Navbar />
         <SideRail />
 
-        <main className="relative">
+        <main id="main-content" tabIndex={-1} className="relative focus:outline-none">
           <NameBanner />
           <Hero />
-          <About />
-          <Skills />
           <Experience />
           <Projects />
+          <Skills />
+          <About />
           <Contact />
           <Footer />
         </main>
