@@ -15,7 +15,7 @@ export default function About() {
       id="about"
       eyebrow="About"
       title="Engineering with product instinct, systems thinking, and AI focus."
-      subtitle="I build software by connecting the technical architecture to the human outcome. That means clear communication, strong implementation discipline, and a bias toward practical impact."
+      subtitle="I turn AI prototypes into systems teams can operate — most recently shipping agentic workflows and RAG pipelines for production products at Kaya Global in Dallas."
     >
       <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
         <div className="surface-card relative overflow-hidden rounded-[2rem] p-4 sm:p-5">
@@ -38,14 +38,16 @@ export default function About() {
             </p>
             <div className="mt-5 space-y-5 text-base leading-8 text-[var(--text-secondary)]">
               <p>
-                I work best at the intersection of AI engineering, scalable systems,
-                and user-centered product thinking. My approach is to make advanced
-                technology feel understandable, reliable, and useful in the real world.
+                At Kaya Global I build the platform behind production GenAI features:
+                FastAPI services, vector retrieval with pgvector and FAISS, and prompt
+                orchestration that cut LLM response latency from minutes to seconds.
               </p>
               <p>
-                That usually means moving fluidly between architecture, APIs, data
-                pipelines, interface decisions, and stakeholder alignment so the
-                product feels cohesive rather than stitched together.
+                Before that I shipped full-stack products and enterprise integrations —
+                OAuth2/JWT authentication, event-driven AWS Lambda pipelines, and test
+                analytics adopted across teams at Accenture. The through-line is
+                consistent: clear architecture, measurable outcomes, software people
+                use.
               </p>
             </div>
           </div>
