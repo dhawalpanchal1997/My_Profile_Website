@@ -39,7 +39,7 @@ export default function Section({
         <div className="mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             {eyebrow && (
-              <p className="pill-label inline-flex rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.26em] text-sky-200">
+              <p className="pill-label inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.26em] text-sky-200">
                 {eyebrow}
               </p>
             )}

@@ -7,7 +7,7 @@ export default function NameBanner() {
       className="px-6 pt-8 sm:px-8 lg:px-10"
     >
       <div className="mx-auto flex max-w-6xl flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
-        <h1 className="text-4xl font-semibold tracking-[-0.03em] text-white sm:text-5xl [font-family:var(--font-display)]">
+        <h1 className="text-4xl font-semibold tracking-[-0.02em] text-white sm:text-5xl [font-family:var(--font-display)]">
           {site.name}
         </h1>
         <p className="text-sm uppercase tracking-[0.24em] text-[var(--text-secondary)]">

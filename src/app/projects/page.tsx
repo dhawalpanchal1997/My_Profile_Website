@@ -70,10 +70,10 @@ export default function ProjectsPage() {
         </Link>
 
         <div className="mt-10 max-w-3xl">
-          <p className="pill-label inline-flex rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.26em] text-sky-200">
+          <p className="pill-label inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.26em] text-sky-200">
             Archive
           </p>
-          <h1 className="mt-5 text-4xl font-semibold tracking-[-0.05em] text-white sm:text-5xl [font-family:var(--font-display)]">
+          <h1 className="mt-5 text-4xl font-semibold tracking-[-0.02em] text-white sm:text-5xl [font-family:var(--font-display)]">
             A broader view of the projects behind the portfolio.
           </h1>
           <p className="mt-5 text-lg leading-8 text-[var(--text-secondary)]">

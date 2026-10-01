@@ -76,7 +76,7 @@ export default function Hero() {
                 <p className="mt-1 text-xs leading-5 text-[var(--text-secondary)]">
                   {scenario.title}
                 </p>
-                <p className="mt-2 text-[11px] uppercase tracking-[0.18em] text-sky-200/75">
+                <p className="mt-2 text-xs uppercase tracking-[0.18em] text-sky-200/75">
                   {scenario.employer} · {scenario.year}
                 </p>
               </div>
@@ -92,7 +92,7 @@ export default function Hero() {
             {site.location}
           </p>
 
-          <h2 className="mt-5 max-w-4xl text-5xl font-semibold tracking-[-0.06em] text-white sm:text-6xl lg:text-7xl [font-family:var(--font-display)]">
+          <h2 className="mt-5 max-w-4xl text-5xl font-semibold tracking-[-0.02em] text-white sm:text-6xl lg:text-7xl [font-family:var(--font-display)]">
             Building modern AI products that feel fast, useful, and ready for
             production.
           </h2>

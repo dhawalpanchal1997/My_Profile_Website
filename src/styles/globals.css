@@ -1,8 +1,13 @@
 @import "tailwindcss";
 
+@theme {
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.4615;
+}
+
 :root {
-  --font-body: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  --font-display: "Avenir Next Condensed", "Avenir Next", "Trebuchet MS", sans-serif;
+  --font-body: var(--font-inter), "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-inter), "Trebuchet MS", sans-serif;
   --bg: #07111f;
   --bg-soft: #0c1a2d;
   --surface: rgba(10, 20, 36, 0.72);
