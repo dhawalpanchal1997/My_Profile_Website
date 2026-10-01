@@ -124,7 +124,7 @@ export default function Hero() {
 
             <div className="relative mt-5 grid gap-4">
               <p className="text-xs uppercase tracking-[0.24em] text-sky-200/80">
-                Glimps of Problems Solved
+                Glimpse of Problems Solved
               </p>
               <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.05] p-5 sm:min-h-[744px]">
                 <div className="flex flex-wrap items-center justify-between gap-3">

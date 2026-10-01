@@ -117,7 +117,7 @@ export const experience = [
     highlights: ["Scrum Delivery", "OAuth2 + JWT", "AWS Lambda", "Stripe"],
     points: [
     "Served as Scrum Master for cross-functional teams, facilitating sprint ceremonies and removing blockers to improve sprint velocity by ~25%, increase on-time delivery by 20%+, and enhance team predictability across releases.",
-    "Architected and implemented a secure authentication and user-management framework using OAuth2 with JWT-based access control, enabling full user traceability, role-based access, and security across a across a full-stack web platform.",
+    "Architected and implemented a secure authentication and user-management framework using OAuth2 with JWT-based access control, enabling full user traceability, role-based access, and security across a full-stack web platform.",
     "Built event-driven AWS Lambda pipelines to process Stripe webhooks, persisting validated transactions in Amazon RDS and enabling near real-time analytics and reporting for payment operations."
 ],
   },
