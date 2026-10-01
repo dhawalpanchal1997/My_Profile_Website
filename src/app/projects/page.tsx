@@ -97,6 +97,7 @@ export default function ProjectsPage() {
                     <button
                       key={category}
                       type="button"
+                      aria-pressed={isActive}
                       onClick={() => setActiveCategory(category)}
                       className={`rounded-2xl px-4 py-3 text-left text-sm transition ${
                         isActive

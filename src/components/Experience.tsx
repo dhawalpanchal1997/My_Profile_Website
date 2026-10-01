@@ -68,8 +68,10 @@ export default function Experience() {
 
                     <button
                       type="button"
+                      aria-expanded={isOpen}
+                      aria-controls={`exp-details-${index}`}
                       onClick={() => setOpenIndex(isOpen ? null : index)}
-                      className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 text-sm text-white transition hover:bg-white/[0.08]"
+                      className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 text-sm text-white transition hover:bg-white/[0.08]"
                     >
                       {isOpen ? "Hide Details" : "View Details"}
                       <ChevronDown
@@ -83,6 +85,7 @@ export default function Experience() {
                 <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
+                      id={`exp-details-${index}`}
                       initial={{ opacity: 0, height: 0, y: -8 }}
                       animate={{ opacity: 1, height: "auto", y: 0 }}
                       exit={{ opacity: 0, height: 0, y: -8 }}
