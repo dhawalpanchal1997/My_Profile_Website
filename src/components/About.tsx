@@ -18,22 +18,41 @@ export default function About() {
       title="Engineering with product instinct, systems thinking, and AI focus."
       subtitle="I turn AI prototypes into systems teams can operate — most recently shipping agentic workflows and RAG pipelines for production products at Kaya Global in Dallas."
     >
-      <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
-        <div className="surface-card relative overflow-hidden rounded-[2rem] p-4 sm:p-5">
-          <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-sky-300/15 to-transparent" />
-          <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10">
-            <Image
-              src="/images/profile.png"
-              alt="Dhawal Panchal portrait"
-              width={900}
-              height={1100}
-              className="h-full w-full object-cover"
-            />
+      <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+        <div className="contents lg:grid lg:gap-6">
+          <div className="surface-card relative order-1 overflow-hidden rounded-[2rem] p-4 sm:p-5">
+            <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-sky-300/15 to-transparent" />
+            <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10">
+              <Image
+                src="/images/profile.png"
+                alt="Dhawal Panchal portrait"
+                width={900}
+                height={1100}
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+
+          <div className="surface-card order-3 rounded-[2rem] p-7">
+            <p className="text-sm uppercase tracking-[0.26em] text-sky-200/80">
+              Education
+            </p>
+            <div className="mt-5 space-y-5">
+              {education.map((item) => (
+                <div key={item.school} className="space-y-1">
+                  <p className="text-base font-semibold text-white">{item.degree}</p>
+                  <p className="text-base text-[var(--text-secondary)]">{item.school}</p>
+                  <p className="text-sm text-[var(--text-muted)]">
+                    {[item.period, item.honors].filter(Boolean).join(" · ")}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="grid gap-6">
-          <div className="surface-card rounded-[2rem] p-7">
+        <div className="contents lg:grid lg:gap-6">
+          <div className="surface-card order-2 rounded-[2rem] p-7">
             <p className="text-sm uppercase tracking-[0.26em] text-sky-200/80">
               Perspective
             </p>
@@ -53,24 +72,7 @@ export default function About() {
             </div>
           </div>
 
-          <div className="surface-card rounded-[2rem] p-7">
-            <p className="text-sm uppercase tracking-[0.26em] text-sky-200/80">
-              Education
-            </p>
-            <div className="mt-5 space-y-5">
-              {education.map((item) => (
-                <div key={item.school} className="space-y-1">
-                  <p className="text-base font-semibold text-white">{item.degree}</p>
-                  <p className="text-base text-[var(--text-secondary)]">{item.school}</p>
-                  <p className="text-sm text-[var(--text-muted)]">
-                    {[item.period, item.honors].filter(Boolean).join(" · ")}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-3">
+          <div className="order-4 grid gap-4 sm:grid-cols-3">
             {principles.map((principle, index) => (
               <div
                 key={principle}
