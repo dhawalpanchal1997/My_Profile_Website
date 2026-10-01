@@ -17,6 +17,8 @@ export const hero = {
 export const starScenarios = [
   {
     id: "01",
+    employer: "Kaya Global",
+    year: "2025",
     title: "Parallelized GenAI Test Generation",
     situation:
       "A user-story-to-test-case workflow needed 15–20 minutes to generate 30–40 test cases with only 30–40% coverage, while each LLM call consumed about 8K tokens.",
@@ -30,6 +32,8 @@ export const starScenarios = [
   },
   {
     id: "02",
+    employer: "Accenture",
+    year: "2019–2022",
     title: "Scaled Zephyr Ingestion Across Millions of Records",
     situation:
       "The Zephyr integration had to synchronize deeply hierarchical data from 5–10 REST and ZQL endpoints across 15+ projects over a six-month window.",
@@ -43,6 +47,8 @@ export const starScenarios = [
   },
   {
     id: "03",
+    employer: "Accenture",
+    year: "2019–2022",
     title: "Improved Test Data Integrity Across Zephyr and Jira",
     situation:
       "Zephyr and Jira payloads arrived with 50+ nested structures and inconsistent fields, making synchronized test data noisy and hard to trust for reporting.",
@@ -56,6 +62,8 @@ export const starScenarios = [
   },
   {
     id: "04",
+    employer: "Kaya Global",
+    year: "2025",
     title: "Drove Adoption of GenAI Automation Workflows",
     situation:
       "Automation testers were hesitant to adopt the GenAI platform because their release process depended on established NIST and Dyna BDD workflows and multiple intermediate artifacts.",
@@ -69,6 +77,8 @@ export const starScenarios = [
   },
   {
     id: "05",
+    employer: "Kaya Global",
+    year: "2025",
     title: "Built RAG Pipelines for Complex Enterprise Context",
     situation:
       "AI workflows needed reliable context from large, unstructured enterprise assets including model files, code, PDFs, Word docs, spreadsheets, Jira attachments, local storage, and Git repositories.",

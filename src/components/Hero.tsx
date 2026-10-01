@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion, useTransform } from "framer-motion";
 import Image from "next/image";
 import {
@@ -11,18 +11,16 @@ import {
   Linkedin,
   Sparkles,
 } from "lucide-react";
-import { experience, hero, site, starScenarios } from "@/data/resumedata";
+import { hero, site, starScenarios } from "@/data/resumedata";
 import { usePointerParallax } from "@/hooks/usePointerParallax";
-
-const proofPoints = [
-  { label: "Roles shipped", value: `${experience.length}+` },
-  { label: "STAR stories", value: `${starScenarios.length}` },
-  { label: "Focus areas", value: `${hero.tags.length}` },
-];
 
 export default function Hero() {
   const [activeScenarioIndex, setActiveScenarioIndex] = useState(0);
   const activeScenario = starScenarios[activeScenarioIndex];
+  const proofIds = ["01", "02", "04"];
+  const proofStrip = proofIds.map(
+    (id) => starScenarios.find((scenario) => scenario.id === id)!,
+  );
   const { springX, springY, handlePointerMove, handlePointerLeave } =
     usePointerParallax(20);
   const leftX = useTransform(springX, (value) => value * 0.22);
@@ -31,14 +29,6 @@ export default function Hero() {
   const rightY = useTransform(springY, (value) => value * -0.12);
   const auraX = useTransform(springX, (value) => value * 0.6);
   const auraY = useTransform(springY, (value) => value * 0.45);
-
-  useEffect(() => {
-    const interval = window.setInterval(() => {
-      setActiveScenarioIndex((current) => (current + 1) % starScenarios.length);
-    }, 7000);
-
-    return () => window.clearInterval(interval);
-  }, []);
 
   const goToPreviousScenario = () => {
     setActiveScenarioIndex((current) =>
@@ -52,7 +42,6 @@ export default function Hero() {
 
   return (
     <section
-      id="home"
       className="relative overflow-hidden scroll-mt-32 px-6 pb-20 pt-14 sm:scroll-mt-36 sm:px-8 lg:px-10 lg:pb-28"
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
@@ -75,6 +64,25 @@ export default function Hero() {
           style={{ x: leftX, y: leftY }}
           className="relative"
         >
+          <div className="mb-6 grid gap-3 sm:grid-cols-3">
+            {proofStrip.map((scenario) => (
+              <div
+                key={scenario.id}
+                className="rounded-2xl border border-white/10 bg-white/[0.04] p-4"
+              >
+                <p className="text-2xl font-semibold text-white [font-family:var(--font-display)]">
+                  {scenario.impact}
+                </p>
+                <p className="mt-1 text-xs leading-5 text-[var(--text-secondary)]">
+                  {scenario.title}
+                </p>
+                <p className="mt-2 text-[11px] uppercase tracking-[0.18em] text-sky-200/75">
+                  {scenario.employer} · {scenario.year}
+                </p>
+              </div>
+            ))}
+          </div>
+
           <div className="pill-label inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm text-sky-100">
             <Sparkles size={16} className="text-sky-300" />
             Production-grade AI engineer with full-stack depth
@@ -84,10 +92,10 @@ export default function Hero() {
             {site.location}
           </p>
 
-          <h1 className="mt-5 max-w-4xl text-5xl font-semibold tracking-[-0.06em] text-white sm:text-6xl lg:text-7xl [font-family:var(--font-display)]">
+          <h2 className="mt-5 max-w-4xl text-5xl font-semibold tracking-[-0.06em] text-white sm:text-6xl lg:text-7xl [font-family:var(--font-display)]">
             Building modern AI products that feel fast, useful, and ready for
             production.
-          </h1>
+          </h2>
 
           <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--text-secondary)]">
             {hero.subheadline}
@@ -180,13 +188,16 @@ export default function Hero() {
               </p>
               <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.05] p-5">
                 <div className="flex flex-wrap items-center justify-between gap-3">
-                  <div className="flex items-center gap-3">
+                  <div className="flex flex-wrap items-center gap-3">
                     <p className="text-xs uppercase tracking-[0.22em] text-[var(--text-muted)]">
                       Scenario {activeScenario.id}
                     </p>
                     <span className="rounded-full border border-sky-300/20 bg-sky-300/10 px-3 py-1 text-xs font-medium text-sky-100">
                       {activeScenario.impact}
                     </span>
+                    <p className="text-xs uppercase tracking-[0.18em] text-sky-200/75">
+                      {activeScenario.employer} · {activeScenario.year}
+                    </p>
                   </div>
 
                   <div className="flex items-center gap-2">
