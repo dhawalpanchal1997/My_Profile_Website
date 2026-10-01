@@ -222,6 +222,7 @@ export default function Hero() {
 
                 <motion.div
                   key={activeScenario.id}
+                  aria-live="polite"
                   initial={{ opacity: 0, y: 18 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.35, ease: "easeOut" }}
@@ -232,7 +233,7 @@ export default function Hero() {
                   </p>
 
                   <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                    <div className="rounded-2xl border border-white/10 bg-slate-950/45 p-4">
+                    <div className="hidden rounded-2xl border border-white/10 bg-slate-950/45 p-4 sm:block">
                       <p className="text-xs uppercase tracking-[0.2em] text-sky-200/80">
                         Situation
                       </p>
@@ -240,7 +241,7 @@ export default function Hero() {
                         {activeScenario.situation}
                       </p>
                     </div>
-                    <div className="rounded-2xl border border-white/10 bg-slate-950/45 p-4">
+                    <div className="hidden rounded-2xl border border-white/10 bg-slate-950/45 p-4 sm:block">
                       <p className="text-xs uppercase tracking-[0.2em] text-sky-200/80">
                         Task
                       </p>
@@ -248,7 +249,7 @@ export default function Hero() {
                         {activeScenario.task}
                       </p>
                     </div>
-                    <div className="rounded-2xl border border-white/10 bg-slate-950/45 p-4">
+                    <div className="hidden rounded-2xl border border-white/10 bg-slate-950/45 p-4 sm:block">
                       <p className="text-xs uppercase tracking-[0.2em] text-sky-200/80">
                         Action
                       </p>
@@ -267,19 +268,24 @@ export default function Hero() {
                   </div>
                 </motion.div>
 
-                <div className="mt-5 flex flex-wrap gap-2">
+                <div className="mt-5 flex flex-wrap items-center gap-1">
                   {starScenarios.map((scenario, index) => (
                     <button
                       key={scenario.id}
                       type="button"
                       aria-label={`Show scenario ${scenario.id}`}
+                      aria-pressed={index === activeScenarioIndex}
                       onClick={() => setActiveScenarioIndex(index)}
-                      className={`h-2.5 rounded-full transition ${
-                        index === activeScenarioIndex
-                          ? "w-8 bg-sky-300"
-                          : "w-2.5 bg-white/20 hover:bg-white/35"
-                      }`}
-                    />
+                      className="group inline-flex h-6 w-6 items-center justify-center outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                    >
+                      <span
+                        className={`h-2.5 rounded-full transition ${
+                          index === activeScenarioIndex
+                            ? "w-8 bg-sky-300"
+                            : "w-2.5 bg-white/20 group-hover:bg-white/35"
+                        }`}
+                      />
+                    </button>
                   ))}
                 </div>
               </div>
