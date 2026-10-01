@@ -133,6 +133,13 @@ export const experience = [
     "Designed and implemented an enterprise-wide test lifecycle analytics pipeline by integrating Jira and Zephyr via Fast API services, enabling end-to-end TDLC/SDLC visibility and improving cross-team productivity through actionable defect and workload insights adopted across multiple teams.",
     "Owned deployment and delivery workflows by managing Git/Bitbucket source control and containerized releases on Red Hat OpenShift, authoring YAML manifests to enable CI/CD pipelines, reduce deployment failures by 30%, and improve release turnaround time by 25%",
     "Designed and optimized scalable database architecture and implementing efficient connection pooling strategies to support 3× higher concurrency, improve query performance by ~35%, and enhance data reliability across enterprise applications."
-],
+    ],
   },
 ]
+
+export const education = {
+  degree: "MSc Information Technology and Management",
+  school: "University of Texas at Dallas",
+  period: "Aug 2022 – May 2024",
+  honors: "Scholar with High Distinction",
+};

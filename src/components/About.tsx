@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Section from "@/components/Section";
+import { education } from "@/data/resumedata";
 
 const principles = [
   "Translate complex technical systems into products people can trust and use.",
@@ -48,6 +49,19 @@ export default function About() {
                 analytics adopted across teams at Accenture. The through-line is
                 consistent: clear architecture, measurable outcomes, software people
                 use.
+              </p>
+            </div>
+          </div>
+
+          <div className="surface-card rounded-[2rem] p-7">
+            <p className="text-sm uppercase tracking-[0.26em] text-sky-200/80">
+              Education
+            </p>
+            <div className="mt-5 space-y-1">
+              <p className="text-base font-semibold text-white">{education.degree}</p>
+              <p className="text-base text-[var(--text-secondary)]">{education.school}</p>
+              <p className="text-sm text-[var(--text-muted)]">
+                {education.period} · {education.honors}
               </p>
             </div>
           </div>
