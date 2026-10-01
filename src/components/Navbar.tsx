@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { site } from "@/data/resumedata";
@@ -34,6 +34,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const shouldReduceMotion = useReducedMotion();
   const mobileMenuId = useId();
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => {
@@ -63,6 +64,20 @@ export default function Navbar() {
     window.addEventListener("hashchange", closeMenu);
     return () => window.removeEventListener("hashchange", closeMenu);
   }, []);
+
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isMenuOpen]);
 
   const sharedPillTransition = shouldReduceMotion
     ? { duration: 0 }
@@ -197,6 +212,7 @@ export default function Navbar() {
 
               <button
                 type="button"
+                ref={menuButtonRef}
                 aria-expanded={isMenuOpen}
                 aria-controls={mobileMenuId}
                 aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
@@ -223,7 +239,7 @@ export default function Navbar() {
                   ? { duration: 0 }
                   : { duration: 0.22, ease: "easeOut" }
               }
-              className={`${shellBaseClassName} mt-3 rounded-[1.75rem] p-3 lg:hidden`}
+              className={`${shellBaseClassName} fixed left-4 right-4 top-[5.5rem] z-40 max-h-[calc(100dvh-7rem)] overflow-y-auto rounded-[1.75rem] p-3 lg:hidden`}
             >
               <div
                 aria-hidden

@@ -26,6 +26,13 @@ export function useScrollSpy(
         }
       }
 
+      if (
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 2
+      ) {
+        current = sections[sections.length - 1].id
+      }
+
       setActiveId(current)
     }
 
