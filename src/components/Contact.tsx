@@ -48,7 +48,7 @@ export default function Contact() {
 
           <a
             href={`mailto:${site.email}`}
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-sky-300 to-cyan-200 px-5 py-3 text-sm font-semibold !text-slate-950 shadow-[0_14px_30px_rgba(56,189,248,0.24)] transition hover:from-sky-200 hover:to-cyan-100 hover:!text-slate-950 focus-visible:!text-slate-950"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-sky-300 to-cyan-200 px-5 py-3 text-sm font-semibold text-slate-950 shadow-[0_14px_30px_rgba(56,189,248,0.24)] transition hover:from-sky-200 hover:to-cyan-100 hover:text-slate-950 focus-visible:text-slate-950"
           >
             <Mail size={16} />
             Start a Conversation

@@ -294,7 +294,7 @@ export default function Hero() {
             <div className="relative mt-5 flex flex-wrap gap-2 lg:flex-nowrap">
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-gradient-to-r from-sky-300 to-cyan-200 px-3.5 py-2 text-sm font-semibold !text-slate-950 shadow-[0_14px_30px_rgba(56,189,248,0.24)] transition hover:from-sky-200 hover:to-cyan-100 hover:!text-slate-950 focus-visible:!text-slate-950"
+                className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-gradient-to-r from-sky-300 to-cyan-200 px-3.5 py-2 text-sm font-semibold text-slate-950 shadow-[0_14px_30px_rgba(56,189,248,0.24)] transition hover:from-sky-200 hover:to-cyan-100 hover:text-slate-950 focus-visible:text-slate-950"
               >
                 Explore Projects
                 <ArrowUpRight size={16} />
