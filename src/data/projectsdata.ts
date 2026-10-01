@@ -1,4 +1,13 @@
-export const projects = [
+type Project = {
+  title: string;
+  description: string;
+  tech: string[];
+  category: string;
+  link: string;
+  outcome?: string;
+};
+
+export const projects: Project[] = [
   {
     title: "IMDB Reviews – GenAI Sentiment & Keyword Analysis",
     description:
@@ -78,6 +87,7 @@ export const projects = [
     tech: ["RAG", "LangChain", "Python", "Streamlit"],
     category: "GenAI & AI Systems",
     link: "https://github.com/dhawalpanchal1997/Documind",
+    outcome: "Ask questions across large PDF libraries and get citations instead of guesses.",
   },
   {
     title: "E-Commerce Customer Segmentation & Recommendation System",
@@ -86,6 +96,7 @@ export const projects = [
     tech: ["Machine Learning", "Python", "Clustering"],
     category: "Machine Learning & Forecasting",
     link: "https://github.com/dhawalpanchal1997/Customer_Segmentation_and_Product_Recommendation",
+    outcome: "K-Means cohorts drive a personalized recommendation per customer segment.",
   },
   {
     title: "Global Bike ERP System (SAP)",
@@ -174,6 +185,7 @@ export const projects = [
     tech: ["GenAI", "Python", "LangChain", "Streamlit"],
     category: "GenAI & AI Systems",
     link: "https://github.com/dhawalpanchal1997/Deepseek_Code_Companion",
+    outcome: "One interface for suggestions, debugging, docs, and best-practice review.",
   },
   {
     title: "Text-to-SQL Agent",
@@ -182,6 +194,7 @@ export const projects = [
     tech: ["LangChain", "Ollama", "PostgreSQL", "Streamlit"],
     category: "GenAI & AI Systems",
     link: "https://github.com/dhawalpanchal1997/TextToSQL",
+    outcome: "Anyone can query Postgres in plain English — runs locally on Ollama, no API keys.",
   },
   {
     title: "GraphRAG Knowledge Retrieval",
@@ -190,6 +203,7 @@ export const projects = [
     tech: ["GraphRAG", "RAG", "Knowledge Graphs", "Python"],
     category: "GenAI & AI Systems",
     link: "https://github.com/dhawalpanchal1997/GraphRag",
+    outcome: "Answers stay grounded by traversing entity relationships, not flat text chunks.",
   },
   {
     title: "Student Performance Prediction",
@@ -317,6 +331,6 @@ export const projects = [
       "Built an interactive outfit design tool that allows users to visualize and customize kurta designs, enabling creative apparel prototyping and style exploration.",
     tech: ["Web App", "JavaScript", "UI/UX"],
     category: "Web Development",
-    link: "https://github.com/dhawalpanchal1997/my-kurta-desiner",
+    link: "#",
   },
 ];

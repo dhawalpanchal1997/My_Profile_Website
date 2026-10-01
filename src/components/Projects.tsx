@@ -47,6 +47,13 @@ export default function Projects() {
               {project.description}
             </p>
 
+            {project.outcome && (
+              <p className="mt-4 flex max-w-3xl items-start gap-2 text-sm leading-6 text-sky-100">
+                <ArrowUpRight size={15} className="mt-1 shrink-0" />
+                {project.outcome}
+              </p>
+            )}
+
             <div className="mt-6 flex flex-wrap gap-2">
               {project.tech.map((tech) => (
                 <span
