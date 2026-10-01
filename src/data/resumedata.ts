@@ -8,10 +8,8 @@ export const site = {
 }
 
 export const hero = {
-  headline: "AI Engineer building production-grade GenAI systems.",
   subheadline:
     "I design agentic workflows, scalable APIs, and full-stack platforms that ship reliably—focused on latency, quality, and real-world impact.",
-  tags: ["GenAI", "Agentic Systems", "RAG/MCP", "Full-Stack", "Cloud"],
 }
 
 export const starScenarios = [
@@ -92,12 +90,6 @@ export const starScenarios = [
   },
 ]
 
-export const about = [
-    "I’m a technologist at heart who thrives on turning complex ideas into practical solutions. My career has taken me from hands-on development to leading collaborative teams, all unified by a common thread: a desire to use technology to improve how people work and live.",
-    "I’m particularly drawn to the intersection of artificial intelligence and human-centered design. Whether I’m building scalable applications or coordinating multidisciplinary projects, I focus on creating systems that are not only powerful, but intuitive and accessible. Along the way, I’ve discovered that my greatest strengths lie in communication—translating technical concepts into clear language, aligning stakeholders on a shared vision, and encouraging innovation through teamwork.",
-    "Outside of coding and project planning, you’ll often find me exploring new ideas through research and community involvement. I believe continuous learning and diverse perspectives are key to staying at the forefront of an evolving industry. If you’re passionate about thoughtful technology and its potential to create positive impact.",
-    ]
-
 export const experience = [
   {
     role: "Software Engineer – GenAI",
@@ -144,10 +136,3 @@ export const experience = [
 ],
   },
 ]
-
-export const skills = {
-  "Programming & Frameworks": ["Python", "React", "Next.js", "Node.js", "REST APIs", "Microservices"],
-  "AI & GenAI": ["Prompt & Context Engineering", "RAG", "MCP", "Agentic Workflows", "Human-in-the-Loop"],
-  "Cloud & DevOps": ["Docker", "Kubernetes", "AWS", "OpenShift", "Jenkins", "Harness", "Bitbucket Pipelines"],
-  "Databases": ["PostgreSQL", "MySQL", "MS SQL Server", "AWS RDS"],
-}
