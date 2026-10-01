@@ -57,12 +57,16 @@ export default function About() {
             <p className="text-sm uppercase tracking-[0.26em] text-sky-200/80">
               Education
             </p>
-            <div className="mt-5 space-y-1">
-              <p className="text-base font-semibold text-white">{education.degree}</p>
-              <p className="text-base text-[var(--text-secondary)]">{education.school}</p>
-              <p className="text-sm text-[var(--text-muted)]">
-                {education.period} · {education.honors}
-              </p>
+            <div className="mt-5 space-y-5">
+              {education.map((item) => (
+                <div key={item.school} className="space-y-1">
+                  <p className="text-base font-semibold text-white">{item.degree}</p>
+                  <p className="text-base text-[var(--text-secondary)]">{item.school}</p>
+                  <p className="text-sm text-[var(--text-muted)]">
+                    {[item.period, item.honors].filter(Boolean).join(" · ")}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
 

@@ -68,7 +68,7 @@ export default function Hero() {
           </p>
 
           <h2 className="mt-5 max-w-4xl text-5xl font-semibold tracking-[-0.02em] text-white sm:text-6xl lg:text-7xl [font-family:var(--font-display)]">
-            Building modern AI products that feel fast, useful, and ready for
+            Building modern AI products that are fast, useful, and ready for
             production.
           </h2>
 
