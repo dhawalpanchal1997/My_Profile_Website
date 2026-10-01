@@ -34,8 +34,8 @@ export default function Contact() {
       subtitle="I’m open to software engineering roles, AI product work, and conversations around scalable systems."
       className="pb-20"
     >
-      <div className="surface-card grid gap-6 rounded-[2rem] p-6 sm:p-8 lg:grid-cols-[1fr_0.9fr]">
-        <div>
+      <div className="surface-card grid grid-cols-1 gap-6 rounded-[2rem] p-6 sm:p-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)]">
+        <div className="min-w-0">
           <div className="pill-label inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm text-sky-100">
             <Send size={15} />
             Available for new opportunities
@@ -55,7 +55,7 @@ export default function Contact() {
           </a>
         </div>
 
-        <div className="grid gap-4">
+        <div className="grid min-w-0 gap-4">
           {links.map((item) => {
             const Icon = item.icon;
 
@@ -67,7 +67,7 @@ export default function Contact() {
                 rel={
                   item.href.startsWith("http") ? "noopener noreferrer" : undefined
                 }
-                className="rounded-[1.5rem] border border-white/10 bg-white/[0.05] p-5 transition hover:border-sky-300/30 hover:bg-white/[0.08]"
+                className="min-w-0 rounded-[1.5rem] border border-white/10 bg-white/[0.05] p-5 transition hover:border-sky-300/30 hover:bg-white/[0.08]"
               >
                 <div className="flex items-center gap-3">
                   <span className="rounded-2xl border border-white/10 p-3 text-sky-200">
@@ -77,7 +77,7 @@ export default function Contact() {
                     <p className="text-sm uppercase tracking-[0.22em] text-[var(--text-muted)]">
                       {item.label}
                     </p>
-                    <p className="mt-1 text-base text-white">{item.value}</p>
+                    <p className="mt-1 break-all text-base text-white">{item.value}</p>
                   </div>
                 </div>
               </a>
