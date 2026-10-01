@@ -39,24 +39,6 @@ export default function Hero() {
           transition={{ duration: 0.55, ease: "easeOut" }}
           className="relative"
         >
-          <div className="mb-6 grid gap-3 sm:grid-cols-3">
-            {proofStrip.map((scenario) => (
-              <div
-                key={scenario.id}
-                className="rounded-2xl border border-white/10 bg-white/[0.04] p-4"
-              >
-                <p className="text-2xl font-semibold text-white [font-family:var(--font-display)]">
-                  {scenario.impact}
-                </p>
-                <p className="mt-1 text-xs leading-5 text-[var(--text-secondary)]">
-                  {scenario.title}
-                </p>
-                <p className="mt-2 text-xs uppercase tracking-[0.18em] text-sky-200/75">
-                  {scenario.employer} · {scenario.year}
-                </p>
-              </div>
-            ))}
-          </div>
 
           <div className="pill-label inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm text-sky-100">
             <Sparkles size={16} className="text-sky-300" />
@@ -75,41 +57,6 @@ export default function Hero() {
           <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--text-secondary)]">
             {hero.subheadline}
           </p>
-
-          <div className="mt-6 rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-5">
-            <p className="text-xs uppercase tracking-[0.24em] text-sky-200/80">
-              What I Optimize For
-            </p>
-            <div className="mt-4 grid gap-3 sm:grid-cols-3">
-              <div className="rounded-2xl border border-white/10 bg-slate-950/50 p-4">
-                <p className="text-sm font-semibold text-white">
-                  Faster delivery
-                </p>
-                <p className="mt-2 text-sm leading-6 text-[var(--text-secondary)]">
-                  Turning multi-step workflows into reliable systems with lower
-                  latency and clearer orchestration.
-                </p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-slate-950/50 p-4">
-                <p className="text-sm font-semibold text-white">
-                  Grounded outputs
-                </p>
-                <p className="mt-2 text-sm leading-6 text-[var(--text-secondary)]">
-                  Improving quality with stronger context handling, structured
-                  generation, and enterprise traceability.
-                </p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-slate-950/50 p-4">
-                <p className="text-sm font-semibold text-white">
-                  Adoption at scale
-                </p>
-                <p className="mt-2 text-sm leading-6 text-[var(--text-secondary)]">
-                  Designing around real team workflows so new AI systems fit
-                  delivery instead of disrupting it.
-                </p>
-              </div>
-            </div>
-          </div>
         </motion.div>
 
         <motion.div
@@ -126,7 +73,7 @@ export default function Hero() {
               <p className="text-xs uppercase tracking-[0.24em] text-sky-200/80">
                 Glimpse of Problems Solved
               </p>
-              <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.05] p-5 lg:min-h-[744px]">
+              <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.05] p-5 lg:min-h-[720px]">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div className="flex flex-wrap items-center gap-3">
                     <p className="text-xs uppercase tracking-[0.22em] text-[var(--text-muted)]">
@@ -135,9 +82,6 @@ export default function Hero() {
                     <span className="rounded-full border border-sky-300/20 bg-sky-300/10 px-3 py-1 text-xs font-medium text-sky-100">
                       {activeScenario.impact}
                     </span>
-                    <p className="text-xs uppercase tracking-[0.18em] text-sky-200/75">
-                      {activeScenario.employer} · {activeScenario.year}
-                    </p>
                   </div>
 
                   <div className="flex items-center gap-2">
@@ -208,7 +152,7 @@ export default function Hero() {
                   </div>
                 </motion.div>
 
-                <div className="mt-5 flex flex-wrap items-center gap-1">
+                <div className="mt-5 flex items-center gap-0.5">
                   {starScenarios.map((scenario, index) => (
                     <button
                       key={scenario.id}
@@ -216,7 +160,7 @@ export default function Hero() {
                       aria-label={`Show scenario ${scenario.id}`}
                       aria-pressed={index === activeScenarioIndex}
                       onClick={() => setActiveScenarioIndex(index)}
-                      className="group inline-flex h-6 w-6 items-center justify-center outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                      className="group inline-flex h-6 min-w-0 max-w-6 flex-1 items-center justify-center outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                     >
                       <span
                         className={`h-2.5 rounded-full transition ${
@@ -267,6 +211,30 @@ export default function Hero() {
                 LinkedIn
               </a>
             </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 26 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, ease: "easeOut", delay: 0.16 }}
+          className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-5 lg:col-span-2"
+        >
+          <p className="text-xs uppercase tracking-[0.24em] text-sky-200/80">
+            What I Optimize For
+          </p>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {hero.optimizeFor.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-2xl border border-white/10 bg-slate-950/50 p-4"
+              >
+                <p className="text-sm font-semibold text-white">{item.title}</p>
+                <p className="mt-2 text-sm leading-6 text-[var(--text-secondary)]">
+                  {item.body}
+                </p>
+              </div>
+            ))}
           </div>
         </motion.div>
       </div>

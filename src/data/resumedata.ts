@@ -10,13 +10,37 @@ export const site = {
 export const hero = {
   subheadline:
     "I design agentic workflows, scalable APIs, and full-stack platforms that ship reliably—focused on latency, quality, and real-world impact.",
+  optimizeFor: [
+    {
+      title: "Faster delivery",
+      body: "Turning multi-step workflows into reliable systems with lower latency and clearer orchestration.",
+    },
+    {
+      title: "Grounded outputs",
+      body: "Improving quality with stronger context handling, structured generation, and enterprise traceability.",
+    },
+    {
+      title: "Adoption at scale",
+      body: "Designing around real team workflows so new AI systems fit delivery instead of disrupting it.",
+    },
+    {
+      title: "Measurable outcomes",
+      body: "Results I can put numbers on: dossiers in 5–7 minutes, not 1–2 weeks; test generation in 1–2 minutes, not 15–20.",
+    },
+    {
+      title: "Safe by default",
+      body: "Guardrails for PII safety and other risks on every AI workflow, with a handoff to a person when the system isn't sure.",
+    },
+    {
+      title: "Fits existing tools",
+      body: "Teams bots, SharePoint documents, and Zoho, Jira, and Zephyr integrations: AI that plugs into the tools people already use.",
+    },
+  ],
 }
 
 export const starScenarios = [
   {
     id: "01",
-    employer: "Kaya Global",
-    year: "2025",
     title: "Parallelized GenAI Test Generation",
     situation:
       "A user-story-to-test-case workflow needed 15–20 minutes to generate 30–40 test cases with only 30–40% coverage, while each LLM call consumed about 8K tokens.",
@@ -30,8 +54,6 @@ export const starScenarios = [
   },
   {
     id: "02",
-    employer: "Accenture",
-    year: "2019–2022",
     title: "Scaled Zephyr Ingestion Across Millions of Records",
     situation:
       "The Zephyr integration had to synchronize deeply hierarchical data from 5–10 REST and ZQL endpoints across 15+ projects over a six-month window.",
@@ -45,8 +67,6 @@ export const starScenarios = [
   },
   {
     id: "03",
-    employer: "Accenture",
-    year: "2019–2022",
     title: "Improved Test Data Integrity Across Zephyr and Jira",
     situation:
       "Zephyr and Jira payloads arrived with 50+ nested structures and inconsistent fields, making synchronized test data noisy and hard to trust for reporting.",
@@ -60,8 +80,6 @@ export const starScenarios = [
   },
   {
     id: "04",
-    employer: "Kaya Global",
-    year: "2025",
     title: "Drove Adoption of GenAI Automation Workflows",
     situation:
       "Automation testers were hesitant to adopt the GenAI platform because their release process depended on established NIST and Dyna BDD workflows and multiple intermediate artifacts.",
@@ -75,8 +93,6 @@ export const starScenarios = [
   },
   {
     id: "05",
-    employer: "Kaya Global",
-    year: "2025",
     title: "Built RAG Pipelines for Complex Enterprise Context",
     situation:
       "AI workflows needed reliable context from large, unstructured enterprise assets including model files, code, PDFs, Word docs, spreadsheets, Jira attachments, local storage, and Git repositories.",
@@ -87,6 +103,71 @@ export const starScenarios = [
     result:
       "Output quality improved by 80–90%, and the platform became reliable enough to support large documents, multi-sheet spreadsheets, and cross-linked project data in production workflows.",
     impact: "80–90% quality lift",
+  },
+  {
+    id: "06",
+    title: "Account Dossier for Sales Teams",
+    situation:
+      "Sales teams built target-account dossiers by hand, an estimated 1–2 weeks of one person's time.",
+    task:
+      "Automate account research and planning, and deliver it inside Teams so the AI feels like a coworker, not another tool.",
+    action:
+      "I built an AI pipeline that researches an account in real time from several perspectives, drafts a tailored plan and strategy, and generates next actions. A Teams bot classifies input, identifies the target account, and reuses prior research, with guardrails for PII safety and other risks.",
+    result:
+      "Dossiers now take 5–7 minutes per target account instead of 1–2 weeks of one person's time, arriving in SharePoint as business-format documents that follow design and marketing guidelines.",
+    impact: "5–7 min per account",
+  },
+  {
+    id: "07",
+    title: "Hiring Assistant for HR Teams",
+    situation:
+      "ATS scans filtered candidates by keyword selection and percent match with the job summary, screening out a good pool of talented candidates.",
+    task:
+      "Evaluate candidates holistically against a rubric HR controls, whatever the role or job board.",
+    action:
+      "I built an AI workflow where a supervisor agent coordinates worker agents for skills, experience, social presence and reviews, and CV matching, then combines them into one score against the HR rubric, with guardrails for PII safety and other risks.",
+    result:
+      "HR gets a holistic score for technical and non-technical hires alike, with more control over scoring, filtering, and screening, across jobs posted on Zoho Recruit, LinkedIn, and the careers portal.",
+    impact: "Holistic rubric scoring",
+  },
+  {
+    id: "08",
+    title: "Employee Time Tracking",
+    situation:
+      "Finance exported timesheets to Excel every week to build reports, project managers tracked hours against project allocation by hand, and nothing validated reported hours against allocation.",
+    task:
+      "Automate reporting for finance, leads, and PMs, and add a system that validates reported hours.",
+    action:
+      "I built a timesheet sync pipeline and curated reports with role-specific KPIs, visuals, and views, plus AI compliance reports for invalid hours, missing timesheets, holiday reporting, and invalid or unapproved leaves, with guardrails for PII safety and other risks.",
+    result:
+      "Finance, team leads, and project managers get weekly, monthly, and date-range reports without manual exports, and compliance exceptions surface automatically.",
+    impact: "Automated compliance",
+  },
+  {
+    id: "09",
+    title: "Onboarding AI Assistant",
+    situation:
+      "New hires join different teams with different roles and experience levels, and each needs training that fits plus help when they get stuck.",
+    task:
+      "Give each new employee a personalized training path with Q&A support and understanding checks at every step.",
+    action:
+      "I built an assistant that creates curated training milestones from each employee's role, experience, and joining team, answers questions at every step, and quizzes them on each module, correcting wrong answers, with guardrails for PII safety and other risks.",
+    result:
+      "Every new hire gets a milestone plan built for their role and team, Q&A support at each step, and a check that they understood the module, with corrections when they didn't.",
+    impact: "Personalized training paths",
+  },
+  {
+    id: "10",
+    title: "Company General AI Assistant",
+    situation:
+      "Employees had day-to-day questions spanning many topics and teams, and needed a direct way to get accurate answers.",
+    task:
+      "Build one assistant that routes each question to the right expertise, backs answers with evidence, and knows when to hand off to a person.",
+    action:
+      "I built a team of specialized AI agents behind a supervisor agent that routes each request to the right one, giving each custom tools, MCP integrations, and documents for thorough answers, with guardrails for PII safety and other risks.",
+    result:
+      "Employees message the bot directly with any query and get an evidence-backed answer, or a handoff to the right point of contact or SME when the bot isn't sure.",
+    impact: "Evidence-backed answers",
   },
 ]
 
