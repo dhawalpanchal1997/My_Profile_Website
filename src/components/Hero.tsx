@@ -126,7 +126,7 @@ export default function Hero() {
               <p className="text-xs uppercase tracking-[0.24em] text-sky-200/80">
                 Glimps of Problems Solved
               </p>
-              <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.05] p-5">
+              <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.05] p-5 sm:min-h-[744px]">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div className="flex flex-wrap items-center gap-3">
                     <p className="text-xs uppercase tracking-[0.22em] text-[var(--text-muted)]">
