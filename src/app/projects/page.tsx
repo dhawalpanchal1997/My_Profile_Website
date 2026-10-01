@@ -52,7 +52,11 @@ export default function ProjectsPage() {
   );
 
   return (
-    <main className="page-shell min-h-screen px-6 pb-20 pt-10 sm:px-8 lg:px-10">
+    <main
+      id="main-content"
+      tabIndex={-1}
+      className="page-shell min-h-screen px-6 pb-20 pt-10 focus:outline-none sm:px-8 lg:px-10"
+    >
       <div className="mesh-orb left-[-6rem] top-12 h-64 w-64 bg-sky-400/10" />
       <div className="mesh-orb right-[-8rem] top-[22rem] h-80 w-80 bg-amber-400/8" />
 
