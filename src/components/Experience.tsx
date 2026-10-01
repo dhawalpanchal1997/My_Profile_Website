@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import Section from "@/components/Section";
 import { experience } from "@/data/resumedata";
 
@@ -89,26 +89,7 @@ export default function Experience() {
                       transition={{ duration: 0.28, ease: "easeOut" }}
                       className="overflow-hidden"
                     >
-                      <div className="mt-6 grid gap-3 lg:grid-cols-2">
-                        <div className="rounded-[1.4rem] border border-white/10 bg-white/[0.04] px-4 py-4">
-                          <p className="text-xs uppercase tracking-[0.2em] text-[var(--text-muted)]">
-                            Role Snapshot
-                          </p>
-                          <p className="mt-3 text-sm leading-7 text-white">
-                            {item.points[0]}
-                          </p>
-                        </div>
-                        <div className="rounded-[1.4rem] border border-white/10 bg-white/[0.04] px-4 py-4">
-                          <p className="text-xs uppercase tracking-[0.2em] text-[var(--text-muted)]">
-                            Strength
-                          </p>
-                          <p className="mt-3 text-sm leading-7 text-white">
-                            End-to-end ownership from design through delivery and operations.
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                      <div className="mt-6 grid gap-3 sm:grid-cols-2">
                         {item.points.map((point, pointIndex) => (
                           <div
                             key={point}
@@ -124,11 +105,6 @@ export default function Experience() {
                             </div>
                           </div>
                         ))}
-                      </div>
-
-                      <div className="mt-5 flex items-center gap-2 text-sm text-sky-200">
-                        <ArrowUpRight size={15} />
-                        Built for product impact, scale, and maintainability.
                       </div>
                     </motion.div>
                   )}
