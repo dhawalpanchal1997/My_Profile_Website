@@ -239,7 +239,7 @@ export default function Navbar() {
                   ? { duration: 0 }
                   : { duration: 0.22, ease: "easeOut" }
               }
-              className={`${shellBaseClassName} fixed left-4 right-4 top-[5.5rem] z-40 max-h-[calc(100dvh-7rem)] overflow-y-auto rounded-[1.75rem] p-3 lg:hidden`}
+              className={`${shellBaseClassName} fixed! left-4 right-4 top-[5.5rem] z-40 max-h-[calc(100dvh-7rem)] overflow-y-auto rounded-[1.75rem] p-3 lg:hidden`}
             >
               <div
                 aria-hidden
