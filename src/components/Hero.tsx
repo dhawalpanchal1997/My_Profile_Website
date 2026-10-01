@@ -120,6 +120,7 @@ export default function Hero() {
         >
           <div className="surface-card relative overflow-hidden rounded-[2rem] p-5 sm:p-6">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(125,211,252,0.18),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(245,158,11,0.12),transparent_24%)]" />
+            <div className="pointer-events-none absolute right-6 top-6 h-12 w-12 rounded-full border border-sky-300/15 bg-sky-300/10 blur-md" />
 
             <div className="relative mt-5 grid gap-4">
               <p className="text-xs uppercase tracking-[0.24em] text-sky-200/80">
