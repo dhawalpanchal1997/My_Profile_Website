@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import {
   ArrowLeft,
@@ -12,7 +12,6 @@ import {
   Sparkles,
 } from "lucide-react";
 import { hero, site, starScenarios } from "@/data/resumedata";
-import { usePointerParallax } from "@/hooks/usePointerParallax";
 
 export default function Hero() {
   const [activeScenarioIndex, setActiveScenarioIndex] = useState(0);
@@ -21,15 +20,6 @@ export default function Hero() {
   const proofStrip = proofIds.map(
     (id) => starScenarios.find((scenario) => scenario.id === id)!,
   );
-  const { springX, springY, handlePointerMove, handlePointerLeave } =
-    usePointerParallax(20);
-  const leftX = useTransform(springX, (value) => value * 0.22);
-  const leftY = useTransform(springY, (value) => value * 0.18);
-  const rightX = useTransform(springX, (value) => value * -0.18);
-  const rightY = useTransform(springY, (value) => value * -0.12);
-  const auraX = useTransform(springX, (value) => value * 0.6);
-  const auraY = useTransform(springY, (value) => value * 0.45);
-
   const goToPreviousScenario = () => {
     setActiveScenarioIndex((current) =>
       current === 0 ? starScenarios.length - 1 : current - 1,
@@ -41,27 +31,12 @@ export default function Hero() {
   };
 
   return (
-    <section
-      className="relative overflow-hidden px-6 pb-20 pt-14 sm:px-8 lg:px-10 lg:pb-28"
-      onPointerMove={handlePointerMove}
-      onPointerLeave={handlePointerLeave}
-    >
-      <motion.div
-        style={{ x: auraX, y: auraY }}
-        className="pointer-events-none absolute left-[8%] top-[12%] h-44 w-44 rounded-full bg-sky-300/10 blur-3xl"
-      />
-      <motion.div
-        style={{ x: rightX }}
-        animate={{ y: [0, 12, 0] }}
-        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-        className="pointer-events-none absolute right-[10%] top-[18%] h-36 w-36 rounded-full bg-cyan-300/8 blur-3xl"
-      />
+    <section className="relative overflow-hidden px-6 pb-20 pt-14 sm:px-8 lg:px-10 lg:pb-28">
       <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_0.98fr] lg:items-start">
         <motion.div
           initial={{ opacity: 0, y: 26 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, ease: "easeOut" }}
-          style={{ x: leftX, y: leftY }}
           className="relative"
         >
           <div className="mb-6 grid gap-3 sm:grid-cols-3">
@@ -106,15 +81,7 @@ export default function Hero() {
               What I Optimize For
             </p>
             <div className="mt-4 grid gap-3 sm:grid-cols-3">
-              <motion.div
-                animate={{ y: [0, -7, 0] }}
-                transition={{
-                  duration: 6.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="rounded-2xl border border-white/10 bg-slate-950/50 p-4"
-              >
+              <div className="rounded-2xl border border-white/10 bg-slate-950/50 p-4">
                 <p className="text-sm font-semibold text-white">
                   Faster delivery
                 </p>
@@ -122,17 +89,8 @@ export default function Hero() {
                   Turning multi-step workflows into reliable systems with lower
                   latency and clearer orchestration.
                 </p>
-              </motion.div>
-              <motion.div
-                animate={{ y: [0, -9, 0] }}
-                transition={{
-                  duration: 7.3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.3,
-                }}
-                className="rounded-2xl border border-white/10 bg-slate-950/50 p-4"
-              >
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-slate-950/50 p-4">
                 <p className="text-sm font-semibold text-white">
                   Grounded outputs
                 </p>
@@ -140,17 +98,8 @@ export default function Hero() {
                   Improving quality with stronger context handling, structured
                   generation, and enterprise traceability.
                 </p>
-              </motion.div>
-              <motion.div
-                animate={{ y: [0, -8, 0] }}
-                transition={{
-                  duration: 6.9,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.6,
-                }}
-                className="rounded-2xl border border-white/10 bg-slate-950/50 p-4"
-              >
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-slate-950/50 p-4">
                 <p className="text-sm font-semibold text-white">
                   Adoption at scale
                 </p>
@@ -158,7 +107,7 @@ export default function Hero() {
                   Designing around real team workflows so new AI systems fit
                   delivery instead of disrupting it.
                 </p>
-              </motion.div>
+              </div>
             </div>
           </div>
         </motion.div>
@@ -167,20 +116,10 @@ export default function Hero() {
           initial={{ opacity: 0, x: 26 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.08 }}
-          style={{ x: rightX, y: rightY }}
           className="relative"
         >
-          <motion.div
-            animate={{ y: [0, -8, 0], rotate: [0, -0.4, 0.2, 0] }}
-            transition={{ duration: 8.8, repeat: Infinity, ease: "easeInOut" }}
-            className="surface-card relative overflow-hidden rounded-[2rem] p-5 sm:p-6"
-          >
+          <div className="surface-card relative overflow-hidden rounded-[2rem] p-5 sm:p-6">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(125,211,252,0.18),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(245,158,11,0.12),transparent_24%)]" />
-            <motion.div
-              animate={{ x: [0, 16, 0], y: [0, -10, 0] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-              className="pointer-events-none absolute right-6 top-6 h-12 w-12 rounded-full border border-sky-300/15 bg-sky-300/10 blur-md"
-            />
 
             <div className="relative mt-5 grid gap-4">
               <p className="text-xs uppercase tracking-[0.24em] text-sky-200/80">
@@ -327,7 +266,7 @@ export default function Hero() {
                 LinkedIn
               </a>
             </div>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

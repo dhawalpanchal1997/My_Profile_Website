@@ -84,14 +84,7 @@ export default function Navbar() {
     : linkTransition;
 
   return (
-    <motion.header
-      initial={shouldReduceMotion ? false : { opacity: 0, y: -18 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={
-        shouldReduceMotion ? { duration: 0 } : { duration: 0.45, ease: "easeOut" }
-      }
-      className="sticky top-0 z-50 px-4 pt-3 sm:px-6 sm:pt-4"
-    >
+    <header className="sticky top-0 z-50 px-4 pt-3 sm:px-6 sm:pt-4">
       <div className="mx-auto max-w-6xl">
         <motion.div
           animate={
@@ -288,6 +281,6 @@ export default function Navbar() {
           )}
         </AnimatePresence>
       </div>
-    </motion.header>
+    </header>
   );
 }
