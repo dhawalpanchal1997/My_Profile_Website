@@ -21,12 +21,8 @@ export default function Experience() {
           const isOpen = openIndex === index;
 
           return (
-            <motion.article
+            <article
               key={`${item.company}-${item.role}`}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.45, ease: "easeOut", delay: index * 0.06 }}
               className="surface-card relative overflow-hidden rounded-[2rem] p-6 sm:p-7"
             >
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(125,211,252,0.12),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(245,158,11,0.08),transparent_24%)]" />
@@ -113,7 +109,7 @@ export default function Experience() {
                   )}
                 </AnimatePresence>
               </div>
-            </motion.article>
+            </article>
           );
         })}
       </div>

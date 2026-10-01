@@ -1,8 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { useReveal } from "@/hooks/useReveal";
-
 interface SectionProps {
   id: string;
   eyebrow?: string;
@@ -20,22 +15,14 @@ export default function Section({
   className,
   children,
 }: SectionProps) {
-  const { ref, isVisible } = useReveal();
-
   return (
     <section
       id={id}
-      ref={ref}
       className={`relative overflow-hidden px-6 py-24 sm:px-8 lg:px-10 ${className ?? ""}`}
     >
       <div className="section-fade" aria-hidden />
 
-      <motion.div
-        initial={{ opacity: 0, y: 28 }}
-        animate={isVisible ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="relative mx-auto max-w-6xl"
-      >
+      <div className="relative mx-auto max-w-6xl">
         <div className="mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             {eyebrow && (
@@ -57,7 +44,7 @@ export default function Section({
         </div>
 
         <div>{children}</div>
-      </motion.div>
+      </div>
 
       <div className="absolute bottom-0 left-0 w-full px-6 sm:px-8 lg:px-10">
         <div className="section-divider mx-auto max-w-6xl" />
