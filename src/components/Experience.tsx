@@ -92,7 +92,12 @@ export default function Experience() {
                         {item.points.map((point, pointIndex) => (
                           <div
                             key={point}
-                            className="rounded-[1.4rem] border border-white/[0.08] bg-white/[0.04] px-4 py-4"
+                            className={`rounded-[1.4rem] border border-white/[0.08] bg-white/[0.04] px-4 py-4 ${
+                              pointIndex === item.points.length - 1 &&
+                              item.points.length % 2 === 1
+                                ? "sm:col-span-2"
+                                : ""
+                            }`}
                           >
                             <div className="flex items-start gap-3">
                               <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-sky-300/20 bg-sky-300/10 text-xs font-semibold text-sky-100">
