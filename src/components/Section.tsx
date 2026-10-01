@@ -26,7 +26,7 @@ export default function Section({
     <section
       id={id}
       ref={ref}
-      className={`relative overflow-hidden scroll-mt-32 px-6 py-24 sm:scroll-mt-36 sm:px-8 lg:px-10 ${className ?? ""}`}
+      className={`relative overflow-hidden px-6 py-24 sm:px-8 lg:px-10 ${className ?? ""}`}
     >
       <div className="section-fade" aria-hidden />
 

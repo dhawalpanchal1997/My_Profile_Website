@@ -42,7 +42,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative overflow-hidden scroll-mt-32 px-6 pb-20 pt-14 sm:scroll-mt-36 sm:px-8 lg:px-10 lg:pb-28"
+      className="relative overflow-hidden px-6 pb-20 pt-14 sm:px-8 lg:px-10 lg:pb-28"
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
     >
